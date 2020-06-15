@@ -1,5 +1,5 @@
 function listAllPosts(){
-location.href = "./html/bloglist.html";
+location.href = "./html/postslist.html";
 }
 
 function showUpcreatePost(){

@@ -1,130 +1,268 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <!-- TODO: Include Font Awesome file here -->
     <!-- TODO: Include Google Fonts file here -->
+	<link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/common.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/postslist.css" />
 </head>
 
 <body>
     <!-- TODO: Include code for header here -->
+	 <!-- TODO: Include all your code for the header and home page here -->
+	<!--Div containing all the page details including the title, subtitle, buttons>
+	<!--Header with title, sub-title and buttons-->
+	<header>
+	<!--Div to group the title and subtitle-->
+	<div class="titleWebsite">
+		<p class="title">ScriBBler</p>
+		<p class="subtitle">Explore, Imagine, Create</p>
+	</div>
+	<!--Div to group SignUp and SignIn buttons. Clicking on the buttons showup the modal boxes. Modal functions in index.js file-->
+	<div class="headerbuttons">
+		<button onclick="showUpSignUpModal()" class = "initialbuttons">Sign Up</button>
+		<button onclick="showUpSignInModal()" class = "initialbuttons">Sign In</button>
+	</div>
+	</header>
 
+	 <!-- code for Sign Up modal -->
+    <div>
+      <div class="modal" id="signup-modal">
+        <div class="modal-content">
+        <div class="modal-head">
+          <span onclick="closeSignUpModal()" id="close" class="close">&times;</span>
+          <h2 class="modal-title">Get Started</h2>
+        </div>
+		<hr>
+        <form>
+          <label for="name" class="label-text">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+          <label for="username" class="label-text">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required>
+          <label for="password" class="label-text">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <label for="confirmpassword" class="label-text">Confirm Password</label>
+          <input type="password" id="confirmpassword" placeholder="Re-enter your Password" required>
+          <button type="submit" onclick="signup(name,username,password,confirmpassword)" class="sign-btn">Sign Up</button>
+        </form>
+      </div>
+      </div>
+    </div>
+	
+	 <!-- code for Sign In modal -->
+    <div>
+      <div class="modal" id="signin-modal">
+        <div class="modal-content">
+        <div class="modal-head">
+          <span onclick="closeSignInModal()" id="close" class="close">&times;</span>
+          <h2 class="modal-title">Welcome Back!</h2>
+        </div>
+		<hr>
+        <form>
+          <label for="username" class="label-text">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required>
+          <label for="password" class="label-text">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <button type="submit" onclick="signin(username, password)" class="sign-btn">Sign Up</button>
+        </form>
+		 <p class=bottom-text>Not a member? <span onclick="closeSignInModal();showUpSignUpModal()" class="signup">Sign In</span></p>
+      </div>
+      </div>
+    </div>
     <!-- ATTENTION: The HTML code for the list of posts has been given to you. You can feel free to add/delete/modify this code. You need to write the proper CSS and JavaScript code corresponding to this page so that the result looks like the screenshots given to you in the Project Statement. -->
 
     <!-- list of all posts starts here -->
-    <div>
+    <div class="allPosts">
 
         <!-- post 1 starts here -->
-        <div>
-            <div>
-                <p>Srishti Gupta</p>
+        <div class="post"  id="postdelete1">
+            <div class="post-left">
+                <p class="post-username">Srishti Gupta</p>
             </div>
 
-            <div>
+            <div class="post-content">
                 <div>
-                    <p>‘let’ me be a ‘const’(ant), not a ‘var’(iable)!</p>
-                    <span>
+                    <p class="post-title">‘let’ me be a ‘const’(ant), not a ‘var’(iable)!</p>
+                    <span class="post-delete">
                         <!-- TODO: Include Font Awesome icon for delete icon here -->
+						<i class="fa fa-trash-o trash-icon" aria-hidden="true" onclick="deletePost1()"></i>
                     </span>
+					 
                 </div>
-                <p>Since JavaScript does not have any type-checking, either of these keywords can be used to declare a variable of any type (datatype) in JavaScript. Though all the three keywords are used for the same purpose, they are different.</p>
-                <span>
+                <p class="post-desc">Since JavaScript does not have any type-checking, either of these keywords can be used to declare a variable of any type (datatype) in JavaScript. Though all the three keywords are used for the same purpose, they are different.</p>
+                <div class="post-more" onclick="postDetails()">
                     <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->
-                </span>
-            </div>
+					<i class="fa fa-ellipsis-h"></i>
+                </div>	
         </div>
+		 </div>
         <!-- post 1 ends here -->
 
         <!-- post 2 starts here -->
-        <div>
-            <div>
-                <p>Colby Fayock</p>
+        <div class="post" id="postdelete2">
+            <div class="post-left">
+                <p class="post-username">Colby Fayock</p>
             </div>
 
-            <div>
+             <div class="post-content">
                 <div>
-                    <p>What is linting and how can it save you time?</p>
-                    <span>
+                    <p class="post-title">What is linting and how can it save you time?</p>
+                      <span class="post-delete">
                         <!-- TODO: Include Font Awesome icon for delete icon here -->
+						<i class="fa fa-trash-o trash-icon" aria-hidden="true" onclick="deletePost2()"></i>
                     </span>
                 </div>
-                <p>One of the biggest challenges in software development is time. It’s something we can’t easily get more of, but linting can help us make the most out of the time we have.</p>
-                <span>
+                 <p class="post-desc">One of the biggest challenges in software development is time. It’s something we can’t easily get more of, but linting can help us make the most out of the time we have.</p>
+                 <div class="post-more" onclick="postDetails()">
                     <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->
-                </span>
-            </div>
+					<i class="fa fa-ellipsis-h"></i>
+                </div>
+           
         </div>
+		 </div>
+			
         <!-- post 2 ends here -->
 
         <!-- post 3 starts here -->
-        <div>
-            <div>
-                <p>Yazeed Bzadough</p>
+        <div class="post" id="postdelete3">
+            <div class="post-left">
+                <p class="post-username">Yazeed Bzadough</p>
             </div>
 
-            <div>
+             <div class="post-content">
                 <div>
-                    <p>How to Get More Views on Your Tech Blog</p>
-                    <span>
+                    <p class="post-title">How to Get More Views on Your Tech Blog</p>
+                      <span class="post-delete">
                         <!-- TODO: Include Font Awesome icon for delete icon here -->
+						<i class="fa fa-trash-o trash-icon" aria-hidden="true" onclick="deletePost3()"></i>
                     </span>
                 </div>
-                <p>If you're a developer with a Twitter account, you've already seen everyone and their cat start a blog, YouTube channel, or Patreon. We all want to become stars, or at the very least, a recognizable name in the industry.</p>
-                <span>
+                <p class="post-desc">If you're a developer with a Twitter account, you've already seen everyone and their cat start a blog, YouTube channel, or Patreon. We all want to become stars, or at the very least, a recognizable name in the industry.</p>
+                 <div class="post-more" onclick="postDetails()">
                     <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->
-                </span>
-            </div>
+					<i class="fa fa-ellipsis-h"></i>
+                </div>
         </div>
+		 </div>
+			
         <!-- post 3 ends here -->
 
         <!-- post 4 starts here -->
-        <div>
-            <div>
-                <p>Cedd Burge</p>
+        <div class="post" id="postdelete4">
+            <div class="post-left">
+                <p class="post-username">Cedd Burge</p>
             </div>
 
-            <div>
+             <div class="post-content">
                 <div>
-                    <p>How to write easily describable code</p>
-                    <span>
+                    <p class="post-title">How to write easily describable code</p>
+                       <span class="post-delete">
                         <!-- TODO: Include Font Awesome icon for delete icon here -->
+						<i class="fa fa-trash-o trash-icon" aria-hidden="true" onclick="deletePost4()"></i>
                     </span>
                 </div>
-                <p>When code is not describable using words, most people have to do some mental mapping to turn it in to words. This wastes mental energy, and you run the risk of getting the mapping wrong. Different people will map to different words, which
+                <p class="post-desc">When code is not describable using words, most people have to do some mental mapping to turn it in to words. This wastes mental energy, and you run the risk of getting the mapping wrong. Different people will map to different words, which
                     leads to confusion when discussing the code.</p>
-                <span>
+                 <div class="post-more" onclick="postDetails()">
                     <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->
-                </span>
+					<i class="fa fa-ellipsis-h"></i>
+                </div>
             </div>
+			
         </div>
+		
         <!-- post 4 ends here -->
 
         <!-- post 5 starts here -->
-        <div>
-            <div>
-                <p>Srishti Gupta</p>
+       <div class="post" id="postdelete5">
+            <div class="post-left">
+                <p class="post-username">Srishti Gupta</p>
             </div>
 
-            <div>
+             <div class="post-content">
                 <div>
-                    <p>Everything you should know about ‘module’ & ‘require’ in Node.js</p>
-                    <span>
+                    <p class="post-title">Everything you should know about ‘module’ & ‘require’ in Node.js</p>
+                        <span class="post-delete">
                         <!-- TODO: Include Font Awesome icon for delete icon here -->
+						<i class="fa fa-trash-o trash-icon" aria-hidden="true" onclick="deletePost5()"></i>
                     </span>
                 </div>
-                <p>Node.js treats each JavaScript file as a separate module. For instance, if you have a file containing some code and this file is named xyz.js, then this file is treated as a module in Node, and you can say that you’ve created a module
+                 <p class="post-desc">Node.js treats each JavaScript file as a separate module. For instance, if you have a file containing some code and this file is named xyz.js, then this file is treated as a module in Node, and you can say that you’ve created a module
                     named xyz.</p>
-                <span>
+                <div class="post-more" onclick="postDetails()">
                     <!-- TODO: Include Font Awesome icon for horizontal ellipsis icon here -->
-                </span>
+					<i class="fa fa-ellipsis-h" ></i>
+                </div>
             </div>
         </div>
+		
         <!-- post 5 ends here -->
-
-        <!-- TODO: Write code for delete post modal here -->
-
     </div>
     <!-- list of all posts ends here -->
+	 <!-- code to delete first post-->
+				<div class="delete-modal" id="deletepostmodal1">
+                <!-- Modal content -->
+                <div class="delete-modal-content">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="delete-buttons-container">
+                        <button class="delete-button-yes" id="del-yes" onclick="deleteSpecificPost1()">Yes</button>
+                        <button class="delete-button-no" id="del-no" onclick="closeDeletePostModal1()">No</button>
+                    </div>
+                </div>
+				</div>
+			
+			 <!-- code to delete first post-->
+				<div class="delete-modal" id="deletepostmodal2">
+                <!-- Modal content -->
+                <div class="delete-modal-content">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="delete-buttons-container">
+                        <button class="delete-button-yes" id="del-yes" onclick="deleteSpecificPost2()">Yes</button>
+                        <button class="delete-button-no" id="del-no" onclick="closeDeletePostModal2()">No</button>
+                    </div>
+                </div>
+				</div>
+				
+				 <!-- code to delete first post-->
+				<div class="delete-modal" id="deletepostmodal3">
+                <!-- Modal content -->
+                <div class="delete-modal-content">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="delete-buttons-container">
+                        <button class="delete-button-yes" id="del-yes" onclick="deleteSpecificPost3()">Yes</button>
+                        <button class="delete-button-no" id="del-no" onclick="closeDeletePostModal3()">No</button>
+                    </div>
+                </div>
+            </div>
+			
+			 <!-- code to delete first post-->
+				<div class="delete-modal" id="deletepostmodal4">
+                <!-- Modal content -->
+                <div class="delete-modal-content">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="delete-buttons-container">
+                        <button class="delete-button-yes" id="del-yes" onclick="deleteSpecificPost4()">Yes</button>
+                        <button class="delete-button-no" id="del-no" onclick="closeDeletePostModal4()">No</button>
+                    </div>
+                </div>
+            </div>
+			
+			 <!-- code to delete first post-->
+				<div class="delete-modal" id="deletepostmodal5">
+                <!-- Modal content -->
+                <div class="delete-modal-content">
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="delete-buttons-container">
+                        <button class="delete-button-yes" id="del-yes" onclick="deleteSpecificPost5()">Yes</button>
+                        <button class="delete-button-no" id="del-no" onclick="closeDeletePostModal5()">No</button>
+                    </div>
+                </div>
+            </div>
 </body>
-
+<!--Includes Javascript files location-->
+	<script src="../scripts/common.js"></script>
+	<script src="../scripts/postslist.js"></script>
 </html>
