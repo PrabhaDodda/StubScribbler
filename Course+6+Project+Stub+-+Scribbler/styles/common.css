@@ -1,7 +1,8 @@
 ﻿header{
 	display: flex;
-	background-color:silver;
+	flex-direction: row;
 	justify-content: space-between;
+	margin: 10px;
 }
 
 .titleWebsite{
@@ -46,6 +47,7 @@ padding: 10px;
 .modal {
   display: none;
   position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -117,4 +119,8 @@ text-align:center;
 .bottom-text{
 	font-family: 'Open Sans', sans-serif;
 	
+}
+
+.signup{
+	color: blue;
 }
