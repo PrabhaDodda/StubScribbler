@@ -84,7 +84,7 @@ del.remove();
 
 
 function postDetails() {
-    location.href = "./html/post.html";
+    location.href = "../html/post.html";
 }
 
 

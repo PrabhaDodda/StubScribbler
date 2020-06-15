@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- TODO: Include Font Awesome file here -->
+    <!-- TODO: Include Google Fonts file here -->
+	<link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/common.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/post.css" />
+</head>
+
+<body>
+    <!-- TODO: Include code for header here -->
+	 <!-- TODO: Include all your code for the header and home page here -->
+	<!--Div containing all the page details including the title, subtitle, buttons>
+	<!--Header with title, sub-title and buttons-->
+	<header>
+	<!--Div to group the title and subtitle-->
+	<div class="titleWebsite">
+		<p class="title">ScriBBler</p>
+		<p class="subtitle">Explore, Imagine, Create</p>
+	</div>
+	<!--Div to group SignUp and SignIn buttons. Clicking on the buttons showup the modal boxes. Modal functions in index.js file-->
+	<div class="headerbuttons">
+		<button onclick="showUpSignUpModal()" class = "initialbuttons">Sign Up</button>
+		<button onclick="showUpSignInModal()" class = "initialbuttons">Sign In</button>
+	</div>
+	</header>
+
+	 <!-- code for Sign Up modal -->
+    <div>
+      <div class="modal" id="signup-modal">
+        <div class="modal-content">
+        <div class="modal-head">
+          <span onclick="closeSignUpModal()" id="close" class="close">&times;</span>
+          <h2 class="modal-title">Get Started</h2>
+        </div>
+		<hr>
+        <form>
+          <label for="name" class="label-text">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+          <label for="username" class="label-text">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required>
+          <label for="password" class="label-text">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <label for="confirmpassword" class="label-text">Confirm Password</label>
+          <input type="password" id="confirmpassword" placeholder="Re-enter your Password" required>
+          <button type="submit" onclick="signup(name,username,password,confirmpassword)" class="sign-btn">Sign Up</button>
+        </form>
+      </div>
+      </div>
+    </div>
+	
+	 <!-- code for Sign In modal -->
+    <div>
+      <div class="modal" id="signin-modal">
+        <div class="modal-content">
+        <div class="modal-head">
+          <span onclick="closeSignInModal()" id="close" class="close">&times;</span>
+          <h2 class="modal-title">Welcome Back!</h2>
+        </div>
+		<hr>
+        <form>
+          <label for="username" class="label-text">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required>
+          <label for="password" class="label-text">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <button type="submit" onclick="signin(username, password)" class="sign-btn">Sign Up</button>
+        </form>
+		 <p class=bottom-text>Not a member? <span onclick="closeSignInModal();showUpSignUpModal()" class="signup">Sign In</span></p>
+      </div>
+      </div>
+    </div>
+	
+	 <!-- code for Post Content -->
+<div class="blogText">
+    <p id="blogBody">
+	<div class = "postLayout">
+		<div id="postTitle" class="postTite">
+			<h id="postTitleHeader">Everything you should know about module and require in Node.js</h>
+		</div>
+	<div class="postAuthor">
+        <button type = "button" id="editPost" class="editPost" onclick="editPost()">Edit <i class="fa fa-edit"></i> </button>
+		<p>Srishti Gupta</p>
+		</div>
+	<div class="postText">
+		<p id="postBody">
+           When you write Node.js applications, you could actually put all your code into one huge index.js file, no matter how large or complex your application is. The Node.js interpreter doesn’t care. But in terms of code organization, you would end up with a hard to understand and hard to debug mess quite quickly. So as a human being, you should care about how to structure your code. This is where modules come in.You can think of Node.js modules as JavaScript libraries - a certain part of your overall codebase (for example, a collection of functions) which you want to keep together, but which you also want to keep separated from the rest of your codebase to keep things cleanly separated.Just like we keep our socks in one drawer and our shirts in another drawer in our wardrobe - even if we combine both to create an outfit for the day - we can keep different parts of our codebase in different modules and then combine them into a coherent application.Even if we don’t create any Node.js modules ourselves, we already have modules at our disposal because the Node.js environment provides built-in modules for us. We already encountered one of these modules in this blog when we looked at how to use the built-in WHATWG URL parser. Within our own code file, we needed to use existing code which was declared elsewhere - in this case, the URL class which is part of the built-in Node.js module url: The require('url') part is what gives us access to the code of the url module. Where and how this module is defined is completely opaque for us - all we need to know is its name - url - and the attributes it exposes, like URL.Other built-in modules directly expose the attribute we need (which often are JavaScript objects). The http module is an example:
+		</p>
+	</div>
+	
+	<div class="likeBlogButton">    
+    <button  id= "likeBlog" onclick="postLiked()">
+      <i class="fa fa-thumbs-up"> Like</i> 
+      
+    </button> 
+    <span id="commentCount">Be the first one to like this!</span>
+  </div>
+  <div class="commentContainer">      
+    <form class="commentBody"> 
+    <label for="commentContent"></label>
+                    <textarea placeholder="Leave a comment..." id="commentContent" rows="5" cols="80" name="Content"></textarea> <br>
+                    <button type="button" class="newComment" onClick="addComment()">Comment</button>
+    </form>
+    <p class="allCommentsHeading">All Comments</p> 
+    <div class="allCommentsBox" id= "commentBox"> 
+       <div class="contentOfComment">                                          
+                </div>
+            </div>
+        </div>
+        </div>
+	</body>
+<!--Includes Javascript files location-->
+	<script src="../scripts/common.js"></script>
+	<script src="../scripts/post.js"></script>
+</html>
